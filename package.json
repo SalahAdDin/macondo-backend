@@ -4,7 +4,7 @@
   "description": "",
   "author": "",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -31,7 +31,7 @@
     "@nestjs/platform-fastify": "^7.6.9",
     "@nestjs/typeorm": "^7.1.5",
     "@types/mongodb": "^3.6.3",
-    "apollo-server-fastify": "^2.19.2",
+    "apollo-server-fastify": "^3.0.0-alpha.3",
     "dayjs": "^1.10.4",
     "fastify-cookie": "^5.1.0",
     "fastify-csrf": "^3.0.1",

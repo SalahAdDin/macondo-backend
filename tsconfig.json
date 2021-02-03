@@ -4,6 +4,7 @@
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "target": "es2017",
@@ -15,7 +16,7 @@
   "include": [
     "src/**/*"
   ],
-    "exclude": [
+  "exclude": [
     "node_modules",
     "**/*.spec.ts"
   ]

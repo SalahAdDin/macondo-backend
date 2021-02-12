@@ -45,6 +45,10 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+### Request Keycloak token
+
+With the container up, run the request script on bash: `yarn token:request user password` where user is the **Keycloak** authentication *user* and *password* is its respective password.
+
 ## Test
 
 ```bash

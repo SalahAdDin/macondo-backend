@@ -11,32 +11,10 @@ import {
   ResourceGuard,
   RoleGuard,
 } from 'nest-keycloak-connect';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { UsersEntity } from './users/interface/users.entity';
-import { UsersModule } from './users/users.module';
-import { AuthModule } from './auth/auth.module';
-
-const ENV = process.env.NODE_ENV;
-
-type connectionType =
-  | 'mysql'
-  | 'mariadb'
-  | 'postgres'
-  | 'cockroachdb'
-  | 'sqlite'
-  | 'mssql'
-  | 'sap'
-  | 'oracle'
-  | 'cordova'
-  | 'nativescript'
-  | 'react-native'
-  | 'sqljs'
-  | 'mongodb'
-  | 'aurora-data-api'
-  | 'aurora-data-api-pg'
-  | 'expo'
-  | 'better-sqlite3';
+import { connectionType, ENV } from '../utils/types';
+import { HttpModule } from './http/http.module';
+import { UserAccountModule } from './user-account/user-account.module';
+import { UserAccountEntity } from './user-account/interface/user-account.entity';
 
 @Module({
   imports: [
@@ -49,7 +27,7 @@ type connectionType =
       url: process.env.DATABASE_URL,
       synchronize: true,
       useUnifiedTopology: true,
-      entities: [UsersEntity],
+      entities: [UserAccountEntity],
     }),
     GraphQLFederationModule.forRoot({
       autoSchemaFile: true,
@@ -82,13 +60,15 @@ type connectionType =
       }),
     }),
     KeycloakConnectModule.register({
-      authServerUrl: process.env.KEYCLOAK_SERVER_URL,
       realm: process.env.KEYCLOAK_REALM,
+      bearerOnly: true,
+      authServerUrl: process.env.KEYCLOAK_SERVER_URL,
       clientId: process.env.KEYCLOAK_CLIENT_ID,
       secret: process.env.KEYCLOAK_SECRET,
       // cookieKey: 'KEYCLOAK_JWT',
     }),
-    UsersModule,
+    HttpModule,
+    UserAccountModule,
     // TODO: Setup https://github.com/Theodo-UK/nestjs-admin#installation
     // TODO: Not support for Fastify, https://github.com/Theodo-UK/nestjs-admin/issues/164
     // DefaultAdminModule,

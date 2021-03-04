@@ -11,6 +11,7 @@ async function bootstrap() {
     AppModule,
     new FastifyAdapter({ logger: true }),
   );
+  if (process.env.NODE_ENV === 'development') app.enableCors();
   app.useGlobalPipes(new ValidationPipe());
   await app.register(fastifyCookie, {
     secret: 'my-secret', // TODO: generate it randomly(uuid) or set in environment file

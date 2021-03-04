@@ -682,6 +682,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@golevelup/ts-jest@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@golevelup/ts-jest/-/ts-jest-0.3.1.tgz#d4ac1753b50b7a21985b8a2fdafb3b120481098e"
+  integrity sha512-Tv9+czaB30o6NaKfrW1IA+TpPC2mh2Z/INRCwZZ6Rh3P6kHvkPYQ7aWba1v7mOkXMsvLyCAGfvH9FD2ew4t/IQ==
+
 "@graphql-tools/batch-delegate@^7.0.0":
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/@graphql-tools/batch-delegate/-/batch-delegate-7.0.1.tgz#ad8452081c462047a8ff182d614d447051ffe023"
